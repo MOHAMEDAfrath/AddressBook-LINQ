@@ -28,6 +28,8 @@ namespace LINQ_Test
             addressBook.Phonenumber = 7410205065;
             addressBook.email = "Gopi@aceu.in";
             addressBook.contactId = 5;
+            addressBook.addressbookname = "Technical";
+             addressBook.addressBooktype = "Profession";
             DataTable actual = TableOperations.InsertIntoDataTable(addressBook);
             int expected =5 ;
             System.Console.WriteLine(actual.Rows.Count);

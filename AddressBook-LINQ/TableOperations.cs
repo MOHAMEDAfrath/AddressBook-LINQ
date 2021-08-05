@@ -87,11 +87,16 @@ namespace AddressBook_LINQ
             }
             return result;
         }
+        public static void CreateNewColumn(DataTable dataTable)
+        {
+       
+          //  dataTable.Rows[""]
+        }
         public static void Display(DataTable dataTable)
         {
             foreach (DataRow rows in dataTable.Rows)
             {
-                Console.WriteLine("{0} {1} {2} {3} {4} {5} {6} {7} {8}", rows["ContactId"], rows["FirstName"], rows["LastName"], rows["Address"], rows["City"], rows["State"], rows["ZipCode"], rows["PhoneNumber"], rows["Email"]);
+                Console.WriteLine("{0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} | {8} | {9} | {10}", rows["ContactId"], rows["FirstName"], rows["LastName"], rows["Address"], rows["City"], rows["State"], rows["ZipCode"], rows["PhoneNumber"], rows["Email"],rows["AddressBookName"],rows["AddressBookType"]);
             }
            
 
