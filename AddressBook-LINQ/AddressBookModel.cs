@@ -20,4 +20,6 @@ namespace AddressBook_LINQ
         public string addressbookname { get; set; }
         public string addressBooktype { get; set; }
     }
+    //After ER
+
 }

@@ -125,7 +125,39 @@ namespace LINQ_Test
             var expected = new List<string>(temp);
             CollectionAssert.AreEqual(actual, expected);
         } 
-        
-
+        //After ER
+        [TestMethod]
+        public void TestMethodToCheckRetrievalBasedOnCityNameAfterER()
+        {
+            List<string> actual = TableOperations.RetrieveDataBasedOnCityNameAfterER("Chennai");
+            string[] temp = { "1 Dhanush", "1 Dhanush","2 Amir" };
+            var expected = new List<string>(temp);
+            CollectionAssert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        public void TestMethodToRetrieveCountBasedOnCityAndStateNameAfterER()
+        {
+            List<string> actual = TableOperations.RetrieveCountBasedOnCityAndStateNameAfterER();
+            string[] temp = { "Chennai TamilNadu 2", "Mumbai Maharastra 1", "Delhi Delhi 1" };
+            var expected = new List<string>(temp);
+            CollectionAssert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        public void TestMethodToSortFirstNameBasedOnCityAfterER()
+        {
+            List<string> actual = TableOperations.SortNameAfterER( "Chennai");
+            string[] temp = { "Amir Khan", "Dhanush Raj" };
+            var expected = new List<string>(temp);
+            CollectionAssert.AreEqual(actual, expected);
+        }
+        //Test method to check for count based on type After ER
+        [TestMethod]
+        public void TestMethodToCountBasedOnTypeAfterER()
+        {
+            List<string> actual = TableOperations.CountByTypeAfterER();
+            string[] temp = { "Family 2", "Friends 2", "Profession 1" };
+            var expected = new List<string>(temp);
+            CollectionAssert.AreEqual(actual, expected);
+        }
     }
 }
