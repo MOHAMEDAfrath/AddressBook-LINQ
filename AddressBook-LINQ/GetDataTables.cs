@@ -13,14 +13,14 @@ namespace AddressBook_LINQ
         {
             DataTable addressbook = new DataTable();
             //Add columns
-            addressbook.Columns.Add("Contact Id",typeof(int));
-            addressbook.Columns.Add("First Name",typeof(string));
-            addressbook.Columns.Add("Last Name",typeof(string));
+            addressbook.Columns.Add("ContactId",typeof(int));
+            addressbook.Columns.Add("FirstName",typeof(string));
+            addressbook.Columns.Add("LastName",typeof(string));
             addressbook.Columns.Add("Address", typeof(string));
             addressbook.Columns.Add("City", typeof(string));
             addressbook.Columns.Add("State", typeof(string));
-            addressbook.Columns.Add("Zip Code", typeof(string));
-            addressbook.Columns.Add("Phone Number",typeof(long));
+            addressbook.Columns.Add("ZipCode", typeof(string));
+            addressbook.Columns.Add("PhoneNumber",typeof(long));
             addressbook.Columns.Add("Email",typeof(string));
             //add rows
             addressbook.Rows.Add(1, "Amir", "Khan", "Egmore", "Chennai", "TamilNadu", "600009", 7874157898, "amir.khan@gmail.com");
@@ -29,6 +29,7 @@ namespace AddressBook_LINQ
             addressbook.Rows.Add(4, "Ram", "Jai", "XXXX", "Delhi", "Delhi", "XXXXXX", 6410203045, "Ram.jai@gmail.com");
             return addressbook;
         }
+        
 
     }
 }

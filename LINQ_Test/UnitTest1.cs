@@ -1,5 +1,6 @@
 using AddressBook_LINQ;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Data;
 
 namespace LINQ_Test
@@ -7,6 +8,12 @@ namespace LINQ_Test
     [TestClass]
     public class UnitTest1
     {
+        DataTable dataTable;
+        [TestInitialize]
+        public void SetUp()
+        {
+            dataTable = GetDataTables.GetTable();
+        }
         [TestMethod]
         public void TestMethodForInsertion()
         {
@@ -24,6 +31,22 @@ namespace LINQ_Test
             int expected =5 ;
             System.Console.WriteLine(actual.Rows.Count);
             Assert.AreEqual(actual.Rows.Count, expected);
+        }
+        //Test method to check updation
+        [TestMethod]
+        public void TestMethodForModfiyLastName()
+        {
+            string expected = "Success";
+            string actual = TableOperations.ModifyLastName(dataTable,"Jhan","Amir");
+            Assert.AreEqual(expected,actual);
+        }
+        //Test method to check updation wrong name
+        [TestMethod]
+        public void NegativeTestMethodForModfiyLastName()
+        {
+            string expected = "Failure";
+            string actual = TableOperations.ModifyLastName(dataTable, "Jhan", "Al");
+            Assert.AreEqual(expected, actual);
         }
     }
 }
