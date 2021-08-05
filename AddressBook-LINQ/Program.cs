@@ -9,7 +9,7 @@ namespace AddressBook_LINQ
         {
             Console.WriteLine("Hello World!");
             DataTable dataTable = GetDataTables.GetTable();
-            GetDataTables.PrintDataTable(dataTable);
+            
         }
     }
 }
