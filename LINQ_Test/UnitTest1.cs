@@ -107,6 +107,7 @@ namespace LINQ_Test
             var expected = new List<string>(temp);
             CollectionAssert.AreEqual(actual, expected);
         }
+        //Test method to sort based on name and for given city
         [TestMethod]
         public void TestMethodToSortFirstNameBasedOnCity()
         {
@@ -115,6 +116,15 @@ namespace LINQ_Test
             var expected = new List<string>(temp);
             CollectionAssert.AreEqual(actual, expected);
         }
+        //Test method to check for count based on type
+        [TestMethod]
+        public void TestMethodToCountBasedOnType()
+        {
+            List<string> actual = TableOperations.CountByType(dataTable);
+            string[] temp = { "Family 2", "Profession 1","Friend 1" };
+            var expected = new List<string>(temp);
+            CollectionAssert.AreEqual(actual, expected);
+        } 
         
 
     }

@@ -13,7 +13,7 @@ namespace AddressBook_LINQ
         public static DataTable InsertIntoDataTable(AddressBookModel addressBookModel)
         {
             DataTable dataTable = GetDataTables.GetTable();
-            dataTable.Rows.Add(addressBookModel.contactId,addressBookModel.FirstName,addressBookModel.LastName,addressBookModel.Address,addressBookModel.City,addressBookModel.State,addressBookModel.ZipCode,addressBookModel.Phonenumber,addressBookModel.email);
+            dataTable.Rows.Add(addressBookModel.contactId,addressBookModel.FirstName,addressBookModel.LastName,addressBookModel.Address,addressBookModel.City,addressBookModel.State,addressBookModel.ZipCode,addressBookModel.Phonenumber,addressBookModel.email,addressBookModel.addressbookname,addressBookModel.addressBooktype);
             return dataTable;
         }
         //modifies last name
@@ -87,18 +87,25 @@ namespace AddressBook_LINQ
             }
             return result;
         }
-        public static void CreateNewColumn(DataTable dataTable)
+        //count based on address book type
+        public static List<string> CountByType(DataTable dataTable)
         {
-       
-          //  dataTable.Rows[""]
+            List<string> result = new List<string>();
+            var member = from contacts in dataTable.AsEnumerable() group contacts by  contacts.Field<string>("AddressBookType") into temp select new { Type = temp.Key, count = temp.Count() };
+            foreach(var mem in member)
+            {
+                Console.WriteLine(mem.Type+" "+mem.count);
+                result.Add(mem.Type + " " + mem.count);
+            }
+            return result;
+
         }
         public static void Display(DataTable dataTable)
         {
             foreach (DataRow rows in dataTable.Rows)
             {
                 Console.WriteLine("{0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} | {8} | {9} | {10}", rows["ContactId"], rows["FirstName"], rows["LastName"], rows["Address"], rows["City"], rows["State"], rows["ZipCode"], rows["PhoneNumber"], rows["Email"],rows["AddressBookName"],rows["AddressBookType"]);
-            }
-           
+            } 
 
         } 
     }
