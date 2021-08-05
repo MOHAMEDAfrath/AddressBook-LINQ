@@ -48,5 +48,44 @@ namespace LINQ_Test
             string actual = TableOperations.ModifyLastName(dataTable, "Jhan", "Al");
             Assert.AreEqual(expected, actual);
         }
+        //TestMethod To Check Deletion of a row
+        [TestMethod]
+        public void TestMethodForDeletion()
+        {
+            string expected = "Success";
+            AddressBookModel addressBook = new AddressBookModel();
+            addressBook.FirstName = "Gopi";
+            addressBook.LastName = "S";
+            addressBook.Address = "Lal Street";
+            addressBook.City = "Bangalore";
+            addressBook.State = "Karnataka";
+            addressBook.ZipCode = "ZIP7451";
+            addressBook.Phonenumber = 7410205065;
+            addressBook.email = "Gopi@aceu.in";
+            addressBook.contactId = 5;
+            DataTable dataTable1 = TableOperations.InsertIntoDataTable(addressBook);
+            string actual = TableOperations.DeleteaPerson(dataTable1 ,"Gopi");
+            Assert.AreEqual(expected, actual);
+        }
+        //Test method to check updation wrong name
+        [TestMethod]
+        public void NegativeTestMethodForDeletion()
+        {
+            string expected = "Failure";
+            AddressBookModel addressBook = new AddressBookModel();
+            addressBook.FirstName = "Gopi";
+            addressBook.LastName = "S";
+            addressBook.Address = "Lal Street";
+            addressBook.City = "Bangalore";
+            addressBook.State = "Karnataka";
+            addressBook.ZipCode = "ZIP7451";
+            addressBook.Phonenumber = 7410205065;
+            addressBook.email = "Gopi@aceu.in";
+            addressBook.contactId = 5;
+            DataTable dataTable1 = TableOperations.InsertIntoDataTable(addressBook);
+            string actual = TableOperations.DeleteaPerson(dataTable1, "Gopio");
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
