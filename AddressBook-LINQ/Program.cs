@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace AddressBook_LINQ
 {
@@ -7,6 +8,8 @@ namespace AddressBook_LINQ
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            DataTable dataTable = GetDataTables.GetTable();
+            GetDataTables.PrintDataTable(dataTable);
         }
     }
 }
