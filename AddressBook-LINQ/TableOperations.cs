@@ -74,6 +74,19 @@ namespace AddressBook_LINQ
             }
             return result;
         }
+        //sorts based on names
+        public static List<string> SortName(DataTable dataTable,string city)
+        {
+            var member = from contacts in dataTable.AsEnumerable() orderby contacts.Field<string>("FirstName") where contacts.Field<string>("City") == city select contacts;
+            List<string> result = new List<string>();
+            foreach (var mem in member)
+            {
+
+                Console.WriteLine("{0} {1} {2} {3} {4} {5} {6} {7} {8}", mem["ContactId"], mem["FirstName"], mem["LastName"], mem["Address"], mem["City"], mem["State"], mem["ZipCode"], mem["PhoneNumber"], mem["Email"]);
+                result.Add(mem["FirstName"] + " " + mem["LastName"]);
+            }
+            return result;
+        }
         public static void Display(DataTable dataTable)
         {
             foreach (DataRow rows in dataTable.Rows)

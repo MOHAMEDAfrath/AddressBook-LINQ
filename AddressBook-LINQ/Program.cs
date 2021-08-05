@@ -8,8 +8,8 @@ namespace AddressBook_LINQ
     {
         static void Main(string[] args)
         {
-            DataTable dataTable = GetDataTables.GetTable();
-        
+            //DataTable dataTable = GetDataTables.GetTable();
+            //TableOperations.Sort(dataTable,"Chennai");
         }
     }
 }

@@ -92,7 +92,7 @@ namespace LINQ_Test
         public void TestMethodToCheckRetrievalBasedOnCityName()
         {
             List<string> actual = TableOperations.RetrieveDataBasedOnCityName(dataTable,"Chennai");
-            string[] temp = { "Amir Khan", "Dhanush Raj" };
+            string[] temp = {  "Dhanush Raj", "Amir Khan" };
             var expected = new List<string>(temp);
             CollectionAssert.AreEqual(actual,expected);
         }
@@ -102,6 +102,14 @@ namespace LINQ_Test
         {
             List<string> actual = TableOperations.RetrieveCountBasedOnCityAndStateName(dataTable);
             string[] temp = { "Chennai TamilNadu 2", "Mumbai Maharastra 1","Delhi Delhi 1" };
+            var expected = new List<string>(temp);
+            CollectionAssert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        public void TestMethodToSortFirstNameBasedOnCity()
+        {
+            List<string> actual = TableOperations.SortName(dataTable,"Chennai");
+            string[] temp = { "Amir Khan","Dhanush Raj" };
             var expected = new List<string>(temp);
             CollectionAssert.AreEqual(actual, expected);
         }
