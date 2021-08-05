@@ -60,6 +60,20 @@ namespace AddressBook_LINQ
             }
             return result;
         }
+        //Group by based on city and state name and returns the count with list
+        public static List<string> RetrieveCountBasedOnCityAndStateName(DataTable dataTable)
+        {
+            //group by city and state name
+            var member = from contacts in dataTable.AsEnumerable() group contacts by new {City = contacts.Field<string>("City"),State = contacts.Field<string>("State") } into temp select new { City = temp.Key.City, State= temp.Key.State,count = temp.Count()};
+            List<string> result = new List<string>();
+            foreach (var mem in member)
+            {
+                Console.WriteLine(mem.City + " " + mem.State + " " + mem.count);
+                result.Add(mem.City + " " + mem.State + " " + mem.count);
+
+            }
+            return result;
+        }
         public static void Display(DataTable dataTable)
         {
             foreach (DataRow rows in dataTable.Rows)

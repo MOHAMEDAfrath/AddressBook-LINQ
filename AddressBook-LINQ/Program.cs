@@ -9,9 +9,7 @@ namespace AddressBook_LINQ
         static void Main(string[] args)
         {
             DataTable dataTable = GetDataTables.GetTable();
-            List<string> result = TableOperations.RetrieveDataBasedOnCityName(dataTable,"Chennai");
-            foreach(var mem in result)
-                Console.WriteLine(mem);
+        
         }
     }
 }

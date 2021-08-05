@@ -87,6 +87,7 @@ namespace LINQ_Test
             string actual = TableOperations.DeleteaPerson(dataTable1, "Gopio");
             Assert.AreEqual(expected, actual);
         }
+        //retrieve based on city name is checked
         [TestMethod]
         public void TestMethodToCheckRetrievalBasedOnCityName()
         {
@@ -95,6 +96,16 @@ namespace LINQ_Test
             var expected = new List<string>(temp);
             CollectionAssert.AreEqual(actual,expected);
         }
+        //Test method to check retrieval count based on city and state name
+        [TestMethod]
+        public void TestMethodToRetrieveCountBasedOnCityAndStateName()
+        {
+            List<string> actual = TableOperations.RetrieveCountBasedOnCityAndStateName(dataTable);
+            string[] temp = { "Chennai TamilNadu 2", "Mumbai Maharastra 1","Delhi Delhi 1" };
+            var expected = new List<string>(temp);
+            CollectionAssert.AreEqual(actual, expected);
+        }
+        
 
     }
 }
