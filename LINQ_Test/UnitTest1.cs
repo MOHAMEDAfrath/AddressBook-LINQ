@@ -1,6 +1,7 @@
 using AddressBook_LINQ;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace LINQ_Test
@@ -85,6 +86,14 @@ namespace LINQ_Test
             DataTable dataTable1 = TableOperations.InsertIntoDataTable(addressBook);
             string actual = TableOperations.DeleteaPerson(dataTable1, "Gopio");
             Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestMethodToCheckRetrievalBasedOnCityName()
+        {
+            List<string> actual = TableOperations.RetrieveDataBasedOnCityName(dataTable,"Chennai");
+            string[] temp = { "Amir Khan", "Dhanush Raj" };
+            var expected = new List<string>(temp);
+            CollectionAssert.AreEqual(actual,expected);
         }
 
     }
